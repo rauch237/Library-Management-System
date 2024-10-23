@@ -12,7 +12,7 @@ use App\Models\User;
 class RegisterController extends Controller
 {
        // Handle user registration
-   public function registeration(RegisterUserRequest $request)
+   public function register(RegisterUserRequest $request)
    {
        // Validate incoming request data
        $validated = $request->validated();

@@ -24,10 +24,10 @@ Route::get('/reset',[AuthController::class,'resetPassword'])->name('reset');
 
 Route::post('reset/{token}', [PasswordResetController::class, 'resetForm'])->name('password.update');
 
-Route::group(['middleware' => 'auth'], function () {
-    // Routes that require authentication
-    Route::post('/logout', [LoginController::class, 'signout'])->name('logout');
-    Route::post('/signin',[LoginController::class,'login'])->name('signin');
-    Route::post('/registeration',[RegisterController::class, 'register'])->name('registeration');
+// Route::group(['middleware' => 'auth'], function () {
+//     // Routes that require authentication
+//     Route::post('/logout', [LoginController::class, 'signout'])->name('logout');
+//     Route::post('/signin',[LoginController::class,'login'])->name('signin');
+//     Route::post('/registeration',[RegisterController::class, 'register'])->name('registeration');
 
-});
+// });

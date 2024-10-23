@@ -88,7 +88,7 @@
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" required>
                 <button type="submit">Login</button>
-                <a href="{{ route('reset', ['token' => $token]) }}">Forgot Password?</a>
+                {{-- <a href="{{ route('reset', ['token' => $token]) }}">Forgot Password?</a> --}}
             </form>
         </div>
     </div>
@@ -107,8 +107,8 @@
                 <input type="password" id="reg-password" name="password" required>
                 <label for="address">Address</label>
                 <input type="address" id="reg-address" name="address">
-                <label for="gender"  >Gender</label>
-                <input type="text" placeholder="Optional" >
+                <label for="gender">Gender</label>
+                <input type="text" name="gender" placeholder="Optional" >
                 <label>
                     <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
                 </label>
