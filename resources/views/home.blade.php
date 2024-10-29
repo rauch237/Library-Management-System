@@ -99,25 +99,56 @@
             <h2>Register</h2>
             <form action="{{ route('registeration') }}" method="POST">
                 @csrf
-                <label for="username">Full Name:</label>
-                <input type="text" id="name" name="name" required>
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required value="{{ old('name') }}">
+                @error('name')
+                    <div style="color:red;">{{ $message }}</div>
+                @enderror
+    
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="email" required value="{{ old('email') }}">
+                @error('email')
+                    <div style="color:red;">{{ $message }}</div>
+                @enderror
+    
                 <label for="password">Password:</label>
-                <input type="password" id="reg-password" name="password" required>
-                <label for="address">Address</label>
-                <input type="address" id="reg-address" name="address">
-                <label for="gender">Gender</label>
-                <input type="text" name="gender" placeholder="Optional" >
+                <input type="password" id="password" name="password" required>
+                @error('password')
+                    <div style="color:red;">{{ $message }}</div>
+                @enderror
+
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address" required value="{{ old('address') }}">
+                @error('address')
+                    <div style="color:red;">{{ $message }}</div>
+                @enderror
+    
+                <label for="gender">Gender (Optional):</label>
+                <input type="text" name="gender" value="{{ old('gender') }}">
+    
+                <label for="phone">Phone Number:</label>
+                <input type="text" name="phone" required value="{{ old('phone') }}">
+                @error('phone')
+                    <div style="color:red;">{{ $message }}</div>
+                @enderror
+    
                 <label>
                     <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
                 </label>
-                <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>  
+    
+                <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
                 <button type="submit">Register</button>
             </form>
         </div>
     </div>
-
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            @if ($errors->any())
+                // If errors exist, show the register modal
+                document.getElementById('registerModal').style.display = 'flex';
+            @endif
+        });
+    </script>
     <script src="script.js"></script>
 </body>
 </html>

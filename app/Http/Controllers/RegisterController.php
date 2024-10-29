@@ -11,17 +11,24 @@ use App\Models\User;
 
 class RegisterController extends Controller
 {
-       // Handle user registration
+
+    public function __construct(private User $user){}
+
+    // Handle user registration
    public function register(RegisterUserRequest $request)
    {
        // Validate incoming request data
        $validated = $request->validated();
 
        // Create the new user and save to the database
-       $user = User::create([
+       $user = $this->user->create([
            'name' => $request->name,
            'email' => $request->email,
-           'password' => Hash::make($request->password), // Hash the password
+           'password' => Hash::make($request->password),
+           'address' => $request->address,
+           'phone' => $request->phone,
+           'gender' => $request->gender
+
        ]);
 
        // Log the user in
