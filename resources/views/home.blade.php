@@ -88,7 +88,7 @@
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" required>
                 <button type="submit">Login</button>
-                {{-- <a href="{{ route('reset', ['token' => $token]) }}">Forgot Password?</a> --}}
+                <a href="{{ route('reset', ['token' => $token]) }}">Forgot Password?</a>
             </form>
         </div>
     </div>

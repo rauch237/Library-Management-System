@@ -29,8 +29,8 @@ class AuthController extends Controller
         return view('login');
     }
     // Show Reset Blade
-    public function resetForm($token){
-        return view('reset',['token' => $token]);
+    public function resetForm(){
+        return view('reset');
     }
 
 }
