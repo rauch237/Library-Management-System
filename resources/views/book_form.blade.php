@@ -114,10 +114,6 @@ body {
       <input type="text" id="user_id" name="user_id" required>
     </div>
     <div class="form-group">
-      <label for="category_id">Category ID</label>
-      <input type="text" id="category_id" name="category_id" required>
-    </div>
-    <div class="form-group">
       <label for="title">Book Title</label>
       <input type="text" id="title" name="title" required>
     </div>

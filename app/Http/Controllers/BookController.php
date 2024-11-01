@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Storage;
 
 class BookController extends Controller
 {
+
+    public function __construct(private Book $book){}
+
     // Show the book creation form
     public function addBook()
     {
@@ -18,6 +21,7 @@ class BookController extends Controller
     public function createBook(BookRequest $request)
     {
         $validatedData = $request->validated();
+ 
 
         // Handle file upload if there is a cover image
         if ($request->hasFile('cover')) {
@@ -26,7 +30,20 @@ class BookController extends Controller
         }
 
         // Save book data to the database
-        $createdBook = Book::create($validatedData);
+        $createdBook = $this->book->create([
+            'user_id' => auth()->user->id,
+            'category_id' => $request->category_id,
+            'title' => $request->title,
+            'author' => $request->author,
+            'pages' => $request->pages,
+            'status'=>$request->status,
+            'cover'=>$request->cover,
+            'description'=>$request->description,
+           
+           
+         //    
+ 
+        ]);
 
         if (!$createdBook) {
             return redirect()->route('book.create')->withErrors('Book creation failed.');
