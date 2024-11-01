@@ -16,9 +16,11 @@ return new class extends Migration
             $table->foreignId ('user_id');
             $table->foreignId('category_id');
             $table->string ('title');
-            $table->string('Author');
+            $table->string('author');
             $table->string('pages');
-            $table->string('status');
+            $table->enum('status', ['available', 'checked_out'])->default('available'); // Example statuses
+            $table->text('description'); // Changed to text for larger content
+            $table->string('cover_image')->nullable();
             $table->timestamps();
         });
     }
