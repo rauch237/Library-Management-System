@@ -9,7 +9,7 @@ class AuthController extends Controller
 {
     //Show Homepage
     public function homePage(){
-        return view ('/home');
+        return view ('home');
     }
 
     // Show Register Form
