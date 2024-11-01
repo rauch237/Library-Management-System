@@ -110,10 +110,6 @@ body {
   <form action="{{ route('book.upload') }}" method="post" enctype="multipart/form-data">
     @csrf
     <div class="form-group">
-      <label for="user_id">User ID</label>
-      <input type="text" id="user_id" name="user_id" required>
-    </div>
-    <div class="form-group">
       <label for="title">Book Title</label>
       <input type="text" id="title" name="title" required>
     </div>
@@ -144,7 +140,7 @@ body {
     </div>
     <div class="form-group">
       <label for="cover">Cover Image</label>
-      <input type="file" id="cover" name="cover" accept="image/*" required>
+      <input type="file" id="cover" name="cover_image" accept="image/*" required>
     </div>
     <div class="form-group">
         <label for="status">Status</label>

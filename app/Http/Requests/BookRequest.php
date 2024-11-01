@@ -23,14 +23,14 @@ class BookRequest extends FormRequest
     {
         return [
             //
-            'user_id'=>'required|string',
+            'user_id'=>'nullable|string',
             'title'=>'required|string',
             'author'=>'required|string',
             'category_id'=>'required|string',
             'pages'=>'nullable|string',
             'status'=>'required|string',
             'description'=>'required|string',
-            'cover'=>'required',
+            'cover_image'=>'required',
 
 
 

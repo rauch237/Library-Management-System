@@ -96,7 +96,7 @@
         </div>
     </div>
 
-    {{-- <div id="registerModal" class="modal">
+    <div id="registerModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeRegister()">&times;</span>
             <h2>Register</h2>
@@ -143,7 +143,7 @@
                 <button type="submit">Register</button>
             </form>
         </div>
-    </div> --}}
+    </div>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             @if ($errors->any())

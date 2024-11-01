@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Book;
 use App\Http\Requests\BookRequest;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class BookController extends Controller
@@ -21,23 +22,28 @@ class BookController extends Controller
     public function createBook(BookRequest $request)
     {
         $validatedData = $request->validated();
+
+        $validatedData['user_id'] = auth()->id()?? config('app.default_user_id');
+
+        // dd($validatedData);
  
 
         // Handle file upload if there is a cover image
-        if ($request->hasFile('cover')) {
-            $coverPath = $request->file('cover')->store('public/covers');
+        if ($request->hasFile('cover_image')) {
+            $coverPath = $request->file('cover_image')->store('public/covers');
             $validatedData['cover_image'] = Storage::url($coverPath); // Get the public URL of the uploaded file
         }
 
         // Save book data to the database
+        // dd(auth()->user()->id);
         $createdBook = $this->book->create([
-            'user_id' => auth()->user->id,
+            'user_id' => Auth::id(),
             'category_id' => $request->category_id,
             'title' => $request->title,
             'author' => $request->author,
             'pages' => $request->pages,
             'status'=>$request->status,
-            'cover'=>$request->cover,
+            'cover_image'=>$request->cover,
             'description'=>$request->description,
            
            
