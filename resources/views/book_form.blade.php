@@ -127,9 +127,6 @@
   <form action="{{ route('book.upload') }}" method="post" enctype="multipart/form-data">
     @csrf
     <div class="form-group">
-      <input type="text" id="title" name="user_id" value='{{ auth()->id()}}'  required hidden>
-    </div>
-    <div class="form-group">
       <label for="title">Book Title</label>
       <input type="text" id="title" name="title" required>
     </div>
