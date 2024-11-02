@@ -28,6 +28,9 @@ class RegisterController extends Controller
            'address' => $request->address,
            'phone' => $request->phone,
            'gender' => $request->gender
+          
+          
+        //    
 
        ]);
 

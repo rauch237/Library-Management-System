@@ -110,12 +110,7 @@
   <form action="{{ route('book.upload') }}" method="post" enctype="multipart/form-data">
     @csrf
     <div class="form-group">
-      <label for="user_id">User ID</label>
-      <input type="text" id="user_id" name="user_id" required>
-    </div>
-    <div class="form-group">
-      <label for="category_id">Category ID</label>
-      <input type="text" id="category_id" name="category_id" required>
+      <input type="text" id="title" name="user_id" value='{{ auth()->id()}}'  required hidden>
     </div>
     <div class="form-group">
       <label for="title">Book Title</label>
@@ -133,13 +128,13 @@
       <label for="category">Category</label>
       <select id="genre" name="category_id" required>
         <option value="">Select Genre</option>
-        <option value="romance">Romance</option>
-        <option value="horror">Horror</option>
-        <option value="adventure">Adventure</option>
-        <option value="history">History</option>
-        <option value="fantasy">Fantasy</option>
-        <option value="tragedy">Tragedy</option>
-        <option value="science">Science</option>
+        <option value="1">Romance</option>
+        <option value="2">Horror</option>
+        <option value="3">Adventure</option>
+        <option value="4">History</option>
+        <option value="5">Fantasy</option>
+        <option value="6">Tragedy</option>
+        <option value="7">Science</option>
       </select>
     </div>
     <div class="form-group">
@@ -148,7 +143,7 @@
     </div>
     <div class="form-group">
       <label for="cover">Cover Image</label>
-      <input type="file" id="cover" name="cover" accept="image/*" required>
+      <input type="file" id="cover" name="cover_image" accept="image/*" required>
     </div>
     <div class="form-group">
         <label for="status">Status</label>

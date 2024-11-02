@@ -83,13 +83,16 @@
             <h2>Login</h2>
             <form action="{{ route('signin') }}" method="POST">
                 @csrf
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" required>
+                
                 <button type="submit">Login</button>
                 <a href="{{ route('reset') }}">Forgot Password?</a>
             </form>
+            
         </div>
     </div>
 
@@ -143,8 +146,8 @@
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            @if ($errors->any())
-                // If errors exist, show the register modal
+            @if ($errors->any() && request()->is('register'))
+                // Only show the register modal on the registration page
                 document.getElementById('registerModal').style.display = 'flex';
             @endif
         });

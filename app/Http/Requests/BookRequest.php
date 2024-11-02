@@ -22,7 +22,6 @@ class BookRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
             'user_id'=>'required|string',
             'title'=>'required|string',
             'author'=>'required|string',
@@ -30,10 +29,7 @@ class BookRequest extends FormRequest
             'pages'=>'nullable|string',
             'status'=>'required|string',
             'description'=>'required|string',
-            'cover'=>'required',
-
-
-
+            'cover_image'=>'required',
         ];
     }
 }
