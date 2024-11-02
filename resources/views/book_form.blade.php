@@ -100,13 +100,30 @@
   </style>
 </head>
 <body>
-    @if (session('success'))
+    {{-- @if (session('success'))
     <div style="color: green; margin-bottom: 10px;">
         {{ session('success') }}
     </div>
-@endif
+    @endif --}}
 <div class="form-container">
   <h2>Upload New Book</h2>
+  
+    @if (session('message'))
+    <div style="color: green; margin-bottom: 10px;">
+        {{ session('message') }}
+    </div>
+  @endif
+
+  <!-- Error Messages -->
+  @if ($errors->any())
+      <div style="color: red; margin-bottom: 10px;">
+          <ul>
+              @foreach ($errors->all() as $error)
+                  <li>{{ $error }}</li>
+              @endforeach
+          </ul>
+      </div>
+  @endif
   <form action="{{ route('book.upload') }}" method="post" enctype="multipart/form-data">
     @csrf
     <div class="form-group">
