@@ -146,8 +146,8 @@
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            @if ($errors->any())
-                // If errors exist, show the register modal
+            @if ($errors->any() && request()->is('register'))
+                // Only show the register modal on the registration page
                 document.getElementById('registerModal').style.display = 'flex';
             @endif
         });

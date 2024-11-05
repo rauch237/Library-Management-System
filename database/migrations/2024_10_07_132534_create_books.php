@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string ('title');
             $table->string('author');
             $table->string('pages');
-            $table->enum('status', ['available', 'unavailable'])->default('available'); // Example statuses
+            $table->string('status')->default('available'); // Example statuses
             $table->text('description'); // Changed to text for larger content
             $table->string('cover_image')->nullable();
             $table->timestamps();

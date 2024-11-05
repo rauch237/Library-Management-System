@@ -22,15 +22,13 @@ class BookRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
-            'user_id'=>'nullable|string',
             'title'=>'required|string',
             'author'=>'required|string',
             'category_id'=>'required|string',
             'pages'=>'nullable|string',
             'status'=>'required|string',
             'description'=>'required|string',
-            'cover_image'=>'required',
+            'cover'=>'required',
 
 
 

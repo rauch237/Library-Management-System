@@ -8,17 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Book extends Model
 {
     use HasFactory;
-    protected $fillable = [
-        'romance',
-        'horror',
-        'tragedy',
-        'history',
-        'adventure',
-        'fantasy',
-        'history',
-        'comedy',
-        'science',
-        ];
+    protected $guarded =[];
 
         public function user()
         {
